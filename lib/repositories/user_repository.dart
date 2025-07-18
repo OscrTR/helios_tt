@@ -20,7 +20,7 @@ class UserRepository {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         final List results = data['results'];
-        return results.map((e) => User.fromJson(e)).toList();
+        return results.map((e) => User.fromMap(e)).toList();
       } else {
         throw Exception('Failed to load users');
       }
