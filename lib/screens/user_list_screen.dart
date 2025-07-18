@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helios_tt/models/user_model.dart';
+import 'package:helios_tt/screens/user_details_screen.dart';
 import '../bloc/user_bloc.dart';
 
 class UserListScreen extends StatefulWidget {
@@ -113,13 +114,12 @@ class _UserListScreenState extends State<UserListScreen> {
                         title: Text(user.fullName),
                         subtitle: Text(user.email),
                         onTap: () {
-                          // TODO
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (_) => UserDetailScreen(user: user),
-                          //   ),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => UserDetailScreen(user: user),
+                            ),
+                          );
                         },
                       );
                     },
