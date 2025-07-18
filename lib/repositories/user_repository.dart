@@ -13,7 +13,7 @@ class UserRepository {
 
   Future<List<User>> fetchUsers(int page) async {
     try {
-      final response = await http.get(
+      final response = await httpClient.get(
         Uri.parse('$_baseUrl?page=$page&results=$_resultsPerPage&seed=abc'),
       );
 
