@@ -49,12 +49,18 @@ class User extends Equatable {
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
+    final name = map['name'];
+    final picture = map['picture'];
+    final locationData = map['location'];
+    final street = locationData['street'];
+
     return User(
-      fullName: map['fullName'] as String,
+      fullName: '${name['first']} ${name['last']}',
       email: map['email'] as String,
-      pictureLarge: map['pictureLarge'] as String,
-      pictureThumbnail: map['pictureThumbnail'] as String,
-      location: map['location'] as String,
+      pictureLarge: picture['large'] as String,
+      pictureThumbnail: picture['thumbnail'] as String,
+      location:
+          '${street['number']} ${street['name']}, ${locationData['city']}, ${locationData['state']}, ${locationData['country']}',
       phone: map['phone'] as String,
     );
   }
